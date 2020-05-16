@@ -11,11 +11,14 @@ public class Passenger extends Thread {
     }
 
 
+
     @Override
     public synchronized void run() {
         try {
             semaphore.acquire();
-            System.out.println(this.getName()+ " купил билет и сел в автобус");
+            System.out.println(this.getName()+ " купил билет ");
+            sleep(1000);
+            System.out.println(this.getName()+ " сел в автобус");
             sleep(2000);
             semaphore.release();
         } catch (Exception e) {
